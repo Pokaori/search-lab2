@@ -32,14 +32,6 @@ class Query:
     def to_dict(self) -> QueryOperator:
         es_query: dict[str, list[QueryOperator]] = {option.value: [op for op in self._get_option(option)] for option in
                                                     QueryOption if self._get_option(option)}
-        # es_query: dict[str, list[QueryOperator]] = {
-        #     "must_not": [op for op in self._must_not],
-        #     "must": [op for op in self._must],
-        #     "should": [op for op in self._should],
-        #     "filter": [op for op in self._filter],
-        # }
-
-        # filtered: QueryOperator = {key: value for key, value in es_query.items() if len(value) > 0}
         return {"bool": es_query}
 
     def add_fuzzy(self, option: QueryOption, key: str, value: str, fuzziness: str = "AUTO"):
