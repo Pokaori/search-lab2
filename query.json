@@ -1,23 +1,12 @@
 {
     "_must_not": [],
-    "_must": [],
-    "_should": [
+    "_must": [
         {
-            "fuzzy": {
-                "genres": {
-                    "value": "Portrait",
-                    "fuzziness": "AUTO"
-                }
-            }
-        },
-        {
-            "range": {
-                "release_date": {
-                    "gte": "1500-12-31",
-                    "lte": "1600-12-31"
-                }
+            "match": {
+                "history": "year"
             }
         }
     ],
+    "_should": [],
     "_filter": []
 }

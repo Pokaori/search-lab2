@@ -10,6 +10,9 @@ class Painting:
     release_date: date
     genres: list[str]
     cost: int
+    description: str
+    specification: str
+    history: str
 
     _id: Optional[str] = None
     _score: Optional[float] = None
@@ -27,6 +30,18 @@ class Painting:
             "release_date": {
                 "type": "date"
             },
+            "specification": {
+                "type": "text",
+                "analyzer": "custom_analyzer"
+            },
+            "history": {
+                "type": "text",
+                "analyzer": "english"
+            },
+            "description": {
+                "type": "text",
+                "analyzer": "standard"
+            }
         }
     }
 
